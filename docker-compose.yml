@@ -1,13 +1,13 @@
 version: '3.8'
 services:
-  echo-healthcheck:
+  chain-healthcheck:
     build:
       context: .
-    image: echo-healthcheck:latest
+    image: chain-healthcheck:latest
     ports:
       - "3002:3002"
     environment:
       - VALIDATOR_RPC=${VALIDATOR_RPC}
       - LOCAL_RPC=${LOCAL_RPC}
-    command: ["./echo-healthCheck"]
+    command: ["./chain-healthCheck"]
     restart: unless-stopped

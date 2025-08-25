@@ -11,7 +11,7 @@ RUN go mod tidy
 COPY . .
 
 # Build the Go app
-RUN go build -o echo-healthCheck ./server/main.go
+RUN go build -o chain-healthCheck ./server/main.go
 
 # Use a minimal image for running
 FROM alpine:latest
@@ -19,17 +19,13 @@ FROM alpine:latest
 WORKDIR /app
 
 # Copy the built binary from builder
-COPY --from=builder /app/echo-healthCheck .
+COPY --from=builder /app/chain-healthCheck .
 
 # Copy any config files if needed
 COPY config ./config
-# COPY .env .env
 
 # Expose port (change if your app uses a different port)
 EXPOSE 3002
 
 # Run the binary
-CMD ["./echo-healthCheck"]
-
-
-# docker build -t echo-healthcheck . && docker run -d --env-file .env -p 3002:3002 echo-healthcheck
+CMD ["./chain-healthCheck"]
