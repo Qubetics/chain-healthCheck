@@ -33,3 +33,4 @@ Thumbs.db
 *.pid
 node_modules/
 .env
+chain-healthcheck

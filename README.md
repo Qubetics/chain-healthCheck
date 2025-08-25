@@ -58,6 +58,16 @@ To build and run with Docker:
 make docker-up
 ```
 
+## Build
+
+To build the application binary, run:
+
+```sh
+make build
+```
+
+This will create a binary named `chain-healthcheck` in the project root.
+
 ### Using Docker
 ```bash
  docker-compose up --build -d
