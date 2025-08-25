@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  echo-healthcheck:
+    build:
+      context: .
+    image: echo-healthcheck:latest
+    ports:
+      - "3002:3002"
+    environment:
+      - VALIDATOR_RPC=${VALIDATOR_RPC}
+      - LOCAL_RPC=${LOCAL_RPC}
+    command: ["./echo-healthCheck"]
+    restart: unless-stopped
